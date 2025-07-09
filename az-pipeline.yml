@@ -31,7 +31,7 @@ stages:
               echo "Logging in to ACR using admin credentials..."
               echo "$ACR_PASSWORD" | docker login "${ACR_NAME}.azurecr.io" -u "$ACR_USERNAME" --password-stdin
 
-              echo "🐳 Building and pushing multi-arch image..."
+              echo "Building and pushing multi-arch image..."
               docker buildx create --use --name buildx-builder || true
               docker buildx build \
                 --platform linux/amd64 \
@@ -55,7 +55,7 @@ stages:
               IMAGE_TAG: $(IMAGE_TAG)
 
   - stage: Deploy
-    displayName: "🚢 Deploy to AKS with Helm"
+    displayName: "Deploy to AKS with Helm"
     dependsOn: BuildAndPush
     jobs:
       - job: Deploy
