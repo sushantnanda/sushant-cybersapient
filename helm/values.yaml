@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: devtask.azurecr.io/devops-task
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 3000
+
+containerPort: 3000
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-task
+spec:
+  replicas: {{ .Values.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: devops-task
+  template:
+    metadata:
+      labels:
+        app: devops-task
+    spec:
+      containers:
+        - name: devops-task
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy | default "IfNotPresent" }}"
+          ports:
+            - containerPort: {{ .Values.containerPort | default 3000 }}
+      imagePullSecrets:
+        - name: acr-auth
