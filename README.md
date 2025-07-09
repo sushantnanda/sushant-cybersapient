@@ -13,6 +13,16 @@ This is a simple Node.js app deployed to Azure Kubernetes Service using CI/CD, T
 - Azure DevOps Pipelines (CI/CD)
 - Node.js + Express
 
+
+✅ Deployment Flow
+* Infrastructure is provisioned using Terraform.
+* App is built using Docker and pushed to ACR.
+* Helm chart deploys the image to AKS.
+* CI/CD pipeline ensures automatic rollout and redeploy.
+
+
+
+
 ## 📂 Project Structure
 
 cybersapient-devops-task/
