@@ -15,3 +15,22 @@ This is a simple Node.js app deployed to Azure Kubernetes Service using CI/CD, T
 
 ## 📂 Project Structure
 
+cybersapient-devops-task/
+├── app/                           # Node.js app
+│   ├── index.js
+│   ├── package.json
+│   └── Dockerfile
+├── helm/                          # Helm chart
+│   ├── Chart.yaml
+│   ├── values.yaml
+│   ├── templates/
+│   │   └── deployment.yaml
+│   │   └── service.yaml
+├── infra/                         # Terraform
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── providers.tf
+├── azure-pipelines.yml            # Azure DevOps pipeline
+├── README.md
+└── diagram.png                    # Architecture diagram
