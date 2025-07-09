@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
     <body>
       <div class="container">
         <h1>🚀 DevOps Task for CyberSapient</h1>
-        <p>This is a beautifully deployed web app on AKS via CI/CD pipeline!</p>
+        <p>This is a beautifully deployed web app on AKS via a Azure DevOps CI/CD pipeline!</p>
       </div>
     </body>
     </html>
