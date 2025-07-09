@@ -67,7 +67,7 @@ stages:
           - task: AzureCLI@2
             displayName: "🎯 Helm Deploy to AKS"
             inputs:
-              azureSubscription: github.com_sushantnanda  # your existing service connection
+              azureSubscription: devtest-rg-task-serviceconnection  # your existing service connection
               scriptType: bash
               scriptLocation: inlineScript
               inlineScript: |
