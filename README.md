@@ -19,8 +19,9 @@ This is a simple Node.js app deployed to Azure Kubernetes Service using CI/CD, T
 * App is built using Docker and pushed to ACR.
 * Helm chart deploys the image to AKS.
 * CI/CD pipeline ensures automatic rollout and redeploy.
+
+Project Structure
 ```
-<details> <summary><strong>Click to Expand: Folder Tree</strong></summary>
 cybersapient-devops-task/
 ├── app/                          # Node.js application
 │   ├── index.js
@@ -41,7 +42,6 @@ cybersapient-devops-task/
 ├── diagram.png                   # Architecture diagram
 └── README.md                     # This file
 
-</details>
 ```
 Architecture Diagram
 ![architecture_cybersapient](https://github.com/user-attachments/assets/46436250-9baa-4672-86a6-86de436d3f6b)
