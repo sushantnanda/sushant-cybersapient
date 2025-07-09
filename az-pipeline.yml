@@ -28,7 +28,7 @@ stages:
           - checkout: self
 
           - script: |
-              echo "🔐 Logging in to ACR using admin credentials..."
+              echo "Logging in to ACR using admin credentials..."
               echo "$ACR_PASSWORD" | docker login "${ACR_NAME}.azurecr.io" -u "$ACR_USERNAME" --password-stdin
 
               echo "🐳 Building and pushing multi-arch image..."
@@ -37,7 +37,7 @@ stages:
                 --platform linux/amd64 \
                 -t "${ACR_NAME}.azurecr.io/${IMAGE_NAME}:${IMAGE_TAG}" \
                 --push .
-            displayName: "🚀 Build & Push Image"
+            displayName: "Build & Push Image"
             env:
               DOCKER_CLI_EXPERIMENTAL: enabled
               ACR_USERNAME: $(ACR_USERNAME)
@@ -47,8 +47,8 @@ stages:
               IMAGE_TAG: $(IMAGE_TAG)
 
           - script: |
-              echo "✅ Image pushed to ACR: ${ACR_NAME}.azurecr.io/${IMAGE_NAME}:${IMAGE_TAG}"
-            displayName: "✅ Confirm ACR Push"
+              echo "Image pushed to ACR: ${ACR_NAME}.azurecr.io/${IMAGE_NAME}:${IMAGE_TAG}"
+            displayName: "Confirm ACR Push"
             env:
               ACR_NAME: $(ACR_NAME)
               IMAGE_NAME: $(IMAGE_NAME)
@@ -65,19 +65,19 @@ stages:
           - checkout: self
 
           - task: AzureCLI@2
-            displayName: "🎯 Helm Deploy to AKS"
+            displayName: "Helm Deploy to AKS"
             inputs:
               azureSubscription: devtest-rg-task-serviceconnection  # your existing service connection
               scriptType: bash
               scriptLocation: inlineScript
               inlineScript: |
-                echo "🔧 Getting AKS credentials..."
+                echo "Getting AKS credentials..."
                 az aks get-credentials \
                   --resource-group $(AKS_RG_NAME) \
                   --name $(AKS_CLUSTER_NAME) \
                   --admin --overwrite-existing
 
-                echo "🚀 Deploying Helm chart..."
+                echo "Deploying Helm chart..."
                 helm upgrade --install devops-task ./helm \
                   --set image.repository="${ACR_NAME}.azurecr.io/${IMAGE_NAME}" \
                   --set image.tag="${IMAGE_TAG}"
